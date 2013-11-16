@@ -11,7 +11,14 @@ public class Treibstofftank {
 		return mFuelstand;
 	}
 	public void setFuelstand(int pFuelstand) {
-		mFuelstand = pFuelstand;
+		if (pFuelstand > mMaxFuelmenge) {
+			
+			mFuelstand = mMaxFuelmenge;
+		} else {
+			
+			mFuelstand = pFuelstand;
+		}
+		
 	}
 	public int getMaxFuelmenge() {
 		return mMaxFuelmenge;

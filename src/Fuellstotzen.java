@@ -22,7 +22,7 @@ public class Fuellstotzen {
 	public int getNummer() {
 		return mNummer;
 	}
-	public void setsNummer(int mNummer) {
-		mNummer = mNummer;
+	public void setNummer(int pNummer) {
+		mNummer = pNummer;
 	}
 }
