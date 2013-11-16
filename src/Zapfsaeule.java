@@ -12,53 +12,110 @@ public class Zapfsaeule {
 	private Kasse mKasse;
 	private List<Fuellstotzen> mFuellstotzenliste = new ArrayList<Fuellstotzen>();;
 	
-	
+	/**
+	 * Gibt die Kasse zurück
+	 * @return
+	 * 	Die Kasse
+	 */
 	public Kasse getKasse() {
 		return mKasse;
 	}
 
+	/**
+	 * Setzt die Kasse
+	 * @param pKasse
+	 * 	Der Wert Kasse
+	 */
 	public void setKasse(Kasse pKasse) {
 		mKasse = pKasse;
 	}
 
+	/**
+	 * Gibt die Nummer zurück
+	 * @return
+	 *  Die Nummer
+	 */
 	public int getNummer() {
 		return mNummer;
 	}
 
+	/**
+	 * Setzt die Nummer
+	 * @param pNummer
+	 *  Der Wert der Nummer
+	 */
 	public void setNummer(int pNummer) {
 		mNummer = pNummer;
 	}
 
+	/**
+	 * Gibt die anzahl Getankte Liter zurück.
+	 * @return
+	 * 	Die anzahl getankten Liter
+	 */
 	public float getGetankteLiter() {
 		return mGetankteLiter;
 	}
 
+	/**
+	 * Setzt die Anzahl getankte Liter
+	 * @param pGetankteLiter
+	 * 	Die Wert der Anzahl getankten Liter
+	 */
 	public void setGetankteLiter(float pGetankteLiter) {
 		mGetankteLiter = pGetankteLiter;
 	}
 
+	/**
+	 * Gibt zurück ob die Zapfsäule Tankbar ist
+	 * @return
+	 * 	Ob die Tanksäule tankbar ist.
+	 */
 	public boolean isIstTankbar() {
 		return mIstTankbar;
 	}
 
+	/**
+	 * Setzt ob die Zapfsäule Tankbar ist.
+	 * @param pIstTankbar
+	 *  Der Wert ob die Säule tankbar ist.
+	 */
 	public void setIstTankbar(boolean pIstTankbar) {
 		mIstTankbar = pIstTankbar;
 	}
 
+	/**
+	 * Gibt die Fülstotzen der Zapfsäule zurück.
+	 * @return
+	 *  Die Fülstotzten
+	 */
 	public List<Fuellstotzen> getFuellstotzenliste() {
 		return mFuellstotzenliste;
 	}
 
+	/**
+	 * Setzt die Fülstotzen der Zapfsäule
+	 * @param pFuellstotzenliste
+	 */
 	public void setFuellstotzenliste(List<Fuellstotzen> pFuellstotzenliste) {
 		mFuellstotzenliste = pFuellstotzenliste;
 	}
 
 	
-	
+	/**
+	 * Default Konstruktor
+	 *  Initialisiert eine Neue instanz der klasse Zapfsaeule
+	 */
 	public Zapfsaeule(){
 		
 	}
 	
+	/**
+	 * Tankt eine bestimmte Anzahl Liter und enzieht so den Treibstoftanks
+	 * Inhalt.
+	 * @param pAnzahlLiter
+	 *  Die zu tankende Anzahl Liter.
+	 */
 	public void tanken(float pAnzahlLiter){
 		
 		boolean lTankbar = false;
@@ -115,6 +172,11 @@ public class Zapfsaeule {
 		}
 	}
 	
+	/**
+	 * Nimmt einen Fülstotzen mit einer Bestimmten Nummer an der Zapfsäule ab.
+	 * @param pNr
+	 *  Die Nummer der Zapfsäule.
+	 */
 	public void fuellstotzenAbnehmen(int pNr){
 		
 		if (mIstTankbar) {
@@ -133,6 +195,9 @@ public class Zapfsaeule {
 		}
 	}
 	
+	/**
+	 * Legt (wenn ein Fülstotzen abgenommen wurde) diesen wieder auf.
+	 */
 	public void fuellstotzenAuflegen(){
 		
 		boolean lWurdeAufgelegt = false;
