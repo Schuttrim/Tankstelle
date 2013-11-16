@@ -3,14 +3,14 @@
  */
 public class Treibstofftank {
 	
-	private int mFuelstand;
-	private int mMaxFuelmenge;
+	private float mFuelstand;
+	private float mMaxFuelmenge;
 	
 	
-	public int getFuelstand() {
+	public float getFuelstand() {
 		return mFuelstand;
 	}
-	public void setFuelstand(int pFuelstand) {
+	public void setFuelstand(float pFuelstand) {
 		if (pFuelstand > mMaxFuelmenge) {
 			
 			mFuelstand = mMaxFuelmenge;
@@ -20,10 +20,10 @@ public class Treibstofftank {
 		}
 		
 	}
-	public int getMaxFuelmenge() {
+	public float getMaxFuelmenge() {
 		return mMaxFuelmenge;
 	}
-	public void setMaxFuelmenge(int pMaxFuelmenge) {
+	public void setMaxFuelmenge(float pMaxFuelmenge) {
 		mMaxFuelmenge = pMaxFuelmenge;
 	}
 }

@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.sun.org.apache.xpath.internal.operations.Lt;
+
 /**
  * Stellt eine Kasse dar.
  */
@@ -54,6 +56,22 @@ public class Kasse {
 	
 	public void neueTankung(int pZapfnr, float pLiter, String pTreibstoff) {
 		
+		Tankung lTankung = new Tankung();
+		lTankung.setAnzahlGetankteLiter(pLiter);
+		lTankung.setGetankterTreibstoffBezeichnung(pTreibstoff);
+		lTankung.setIstTankungAbgerechhnet(false);
+		lTankung.setTankDatum(new Date());
+		lTankung.setZapfNummer(pZapfnr);
+		
+		for (Treibstoff lTreibstoff : mTeibstoffe) {
+			
+			if (lTreibstoff.getBezeichnung() == pTreibstoff) {
+				
+				lTankung.setPreisProLiterzuTankdatum(lTreibstoff.getPreisProLiter());
+			}
+		}
+		
+		mTankungen.add(lTankung);
 	}
 	
 }
