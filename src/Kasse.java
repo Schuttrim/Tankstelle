@@ -114,7 +114,13 @@ public class Kasse {
 	 * Gibt die Preise aller Treibstoffe auf dem Bilschirm aus.
 	 */
 	public void printPreisTafel() {
+		System.out.println("\nDie aktuellen Preise sind:");
 		
+		for (Treibstoff lTreibstoff : mTeibstoffe){
+			System.out.format(" - %s: %4.2f Fr.\n", lTreibstoff.getBezeichnung(), lTreibstoff.getPreisProLiter());
+		}
+		
+		System.out.println();
 	}
 	
 	/**

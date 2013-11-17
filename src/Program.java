@@ -16,6 +16,7 @@ public class Program {
 		// Initialisiere Daten mit Standardwerten.
 		Kasse lKasse = new Kasse();
 		Initialize.Kasse(lKasse);
+		lKasse.printPreisTafel();
 		
 		Zapfsaeule lAusgewaehlteZapfsaeule = null;
 		for (Zapfsaeule lZapfsaeule : lKasse.getZapfsaeulen()) {
