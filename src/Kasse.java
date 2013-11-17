@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.sun.org.apache.xpath.internal.operations.Lt;
 
 /**
  * Stellt eine Kasse dar.
@@ -14,6 +13,8 @@ public class Kasse {
 	private List<Zapfsaeule> mZapfsaeulen = new ArrayList<Zapfsaeule>();
 	
 	
+	
+	// public Methoden
 	/**
 	 * Gibt die Treibstoffe zurück
 	 * @return
@@ -74,6 +75,27 @@ public class Kasse {
 	 *  Die zapfsäule an der getankt wurde.
 	 */
 	public void tankungBezahlen(int pZapfsaeuleNummer) {
+		// aktelle nicht beglichene tankung finden
+		Tankung lTankung = tankungenDurchsuchen(pZapfsaeuleNummer, false); 
+		
+		if (lTankung != null){
+			
+			// Tankung auf bezahlt setzen
+			lTankung.setIstTankungAbgerechhnet(true);
+			
+			// Zapfsäule freigeben
+			for (Zapfsaeule lZapfseule : mZapfsaeulen){
+				if (lZapfseule.getNummer() == pZapfsaeuleNummer){
+					lZapfseule.setIstTankbar(true);	
+					
+					// geschwindigkeit erhöhen
+					break;
+				}
+			}
+		}
+		else{
+			System.out.println("Keine nichtbeglichene Rechnung der Zapfsäule " + pZapfsaeuleNummer + " gefunden!");
+		}
 		
 	}
 	
@@ -122,6 +144,31 @@ public class Kasse {
 		}
 		
 		mTankungen.add(lTankung);
+	}
+	
+	// private Methoden
+	/**
+	 * Ergibt referenz auf Tankung von Zapfsäule, welche dem istTankbar-Wert entspricht. Wenn keine null
+	 * Achtung: Sie arbeiten nun auf der mTankungen-liste
+	 * 
+	 * @param pZapfseuleNummer
+	 * @param istTankbar
+	 * @return Tankung 
+	 */
+	private Tankung	tankungenDurchsuchen(int pZapfseuleNummer, boolean istBeglichen){
+		Tankung lTankung = null;
+		
+		// nach nicht beglichener Tankung suchen für angegebene Zapfseule
+		for (Tankung lTankungstepper : mTankungen){
+			if (lTankungstepper.getZapfNummer() == pZapfseuleNummer && lTankungstepper.isIstTankungAbgerechhnet() == istBeglichen){
+				lTankung = lTankungstepper;
+				
+				//damit nicht unnötig mehr durchgesteppt wird (es kann nur 1 tankung gefunden werden)
+				break; 
+			}
+		}
+		
+		return (lTankung);
 	}
 	
 }

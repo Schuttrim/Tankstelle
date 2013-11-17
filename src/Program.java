@@ -32,6 +32,9 @@ public class Program {
 			lAusgewaehlteZapfsaeule.tanken(45.25f);
 			lAusgewaehlteZapfsaeule.fuellstotzenAuflegen();
 			lAusgewaehlteZapfsaeule.fuellstotzenAuflegen();
+			
+			lKasse.tankungBezahlen(1);
+			lKasse.tankungBezahlen(1);
 		}
 	}
 }
