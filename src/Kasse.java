@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+import java.text.DateFormat;
 
 
 /**
@@ -100,14 +102,23 @@ public class Kasse {
 	}
 	
 	/**
-	 * Wertet den Umsatz in einer Gewissen Zeit aus.
+	 * Wertet den Umsatz in einem gewissen Zeitraum aus.
 	 * @param pVon
 	 *  Anfang der Auswertung
 	 * @param pBis
 	 *  Ende der Auswertung.
 	 */
 	public void auswerten(Date pVon, Date pBis) {
-		
+		float lUmsatz = 0f; // Umsatz im Zeitraum
+		DateFormat lFormatierer = DateFormat.getDateInstance(DateFormat.SHORT, Locale.GERMANY); // Formatierer für Date-Objekte
+		// Tankungen auf im Zeitraum zu Liste hinzufügen
+		for (Tankung lTankung : mTankungen){
+			// auf Zeitraum überprüfen
+			if(lTankung.getTankDatum().getTime() <= pBis.getTime() && lTankung.getTankDatum().getTime() >= pVon.getTime()){
+				lUmsatz += lTankung.getAnzahlGetankteLiter() * lTankung.getPreisProLiterzuTankdatum();
+			}
+		}
+		System.out.format("\n\nDer Gesamtumsatz für den Zeitraum vom %s, bis am %s ist %.2f", lFormatierer.format(pVon), lFormatierer.format(pBis), lUmsatz);
 	}
 	
 	/**
