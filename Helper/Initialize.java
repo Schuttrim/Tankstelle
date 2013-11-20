@@ -3,6 +3,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
@@ -36,53 +37,81 @@ public class Initialize {
 		
 	}
 	
+	@SuppressWarnings("deprecation")
 	private static void InitializeTankungen(List<Tankung> pTankungen, Kasse pKasse) {
-		SimpleDateFormat lFormatierer = new SimpleDateFormat("dd.mm.yyyy");
-		//DateFormat lFormatierer = DateFormat.getDateInstance(DateFormat.SHORT, Locale.GERMANY);
-		
+
 		Tankung lTankung = new Tankung();
-		
 		lTankung.setAnzahlGetankteLiter(40f);
 		lTankung.setGetankterTreibstoffBezeichnung("Benzin Bleifrei");
 		lTankung.setIstTankungAbgerechhnet(true);
 		lTankung.setPreisProLiterzuTankdatum(1.85f);
-		lTankung.setTankDatum(lFormatierer.parse("16.11.2013"));
+		
+		Calendar lDate = Calendar.getInstance();
+		lDate.set(2013, 11, 16);
+		
+		lTankung.setTankDatum(lDate);
 		pTankungen.add(lTankung);
 		
-		lTankung.setAnzahlGetankteLiter(50f);
-		lTankung.setGetankterTreibstoffBezeichnung("Benzin Bleifrei");
-		lTankung.setIstTankungAbgerechhnet(true);
-		lTankung.setPreisProLiterzuTankdatum(1.85f);
-		lTankung.setTankDatum(lFormatierer.parse("16.11.2013"));
-		pTankungen.add(lTankung);
+		Tankung lTankung1 = new Tankung();
+		lTankung1.setAnzahlGetankteLiter(50f);
+		lTankung1.setGetankterTreibstoffBezeichnung("Benzin Bleifrei");
+		lTankung1.setIstTankungAbgerechhnet(true);
+		lTankung1.setPreisProLiterzuTankdatum(1.85f);
 		
-		lTankung.setAnzahlGetankteLiter(30f);
-		lTankung.setGetankterTreibstoffBezeichnung("Benzin Bleifrei");
-		lTankung.setIstTankungAbgerechhnet(true);
-		lTankung.setPreisProLiterzuTankdatum(1.85f);
-		lTankung.setTankDatum(lFormatierer.parse("16.11.2013"));
-		pTankungen.add(lTankung);
+		Calendar lDate1 = Calendar.getInstance();
+		lDate1.set(2013, 11, 18);
 		
-		lTankung.setAnzahlGetankteLiter(45f);
-		lTankung.setGetankterTreibstoffBezeichnung("Diesel");
-		lTankung.setIstTankungAbgerechhnet(true);
-		lTankung.setPreisProLiterzuTankdatum(2.10f);
-		lTankung.setTankDatum(lFormatierer.parse("15.11.2013"));
-		pTankungen.add(lTankung);
+		lTankung1.setTankDatum(lDate1);
+		pTankungen.add(lTankung1);
 		
-		lTankung.setAnzahlGetankteLiter(35f);
-		lTankung.setGetankterTreibstoffBezeichnung("Diesel");
-		lTankung.setIstTankungAbgerechhnet(true);
-		lTankung.setPreisProLiterzuTankdatum(2.10f);
-		lTankung.setTankDatum(lFormatierer.parse("15.11.2013"));
-		pTankungen.add(lTankung);
+		Tankung lTankung2 = new Tankung();
+		lTankung2.setAnzahlGetankteLiter(30f);
+		lTankung2.setGetankterTreibstoffBezeichnung("Benzin Bleifrei");
+		lTankung2.setIstTankungAbgerechhnet(true);
+		lTankung2.setPreisProLiterzuTankdatum(1.85f);
 		
-		lTankung.setAnzahlGetankteLiter(60f);
-		lTankung.setGetankterTreibstoffBezeichnung("Benzin Bleifrei");
-		lTankung.setIstTankungAbgerechhnet(true);
-		lTankung.setPreisProLiterzuTankdatum(1.80f);
-		lTankung.setTankDatum(lFormatierer.parse("14.11.2013"));
-		pTankungen.add(lTankung);
+		Calendar lDate2 = Calendar.getInstance();
+		lDate2.set(2013, 11, 20);
+		
+		lTankung2.setTankDatum(lDate2);
+		pTankungen.add(lTankung2);
+		
+		Tankung lTankung3 = new Tankung();
+		lTankung3.setAnzahlGetankteLiter(45f);
+		lTankung3.setGetankterTreibstoffBezeichnung("Diesel");
+		lTankung3.setIstTankungAbgerechhnet(true);
+		lTankung3.setPreisProLiterzuTankdatum(2.10f);
+		
+		Calendar lDate3 = Calendar.getInstance();
+		lDate3.set(2013, 11, 22);
+		
+		lTankung3.setTankDatum(lDate3);
+		pTankungen.add(lTankung3);
+		
+		Tankung lTankung4 = new Tankung();
+		lTankung4.setAnzahlGetankteLiter(35f);
+		lTankung4.setGetankterTreibstoffBezeichnung("Diesel");
+		lTankung4.setIstTankungAbgerechhnet(true);
+		lTankung4.setPreisProLiterzuTankdatum(2.10f);
+		
+		Calendar lDate4 = Calendar.getInstance();
+		lDate4.set(2013, 11, 22);
+		
+		lTankung4.setTankDatum(lDate4);
+		pTankungen.add(lTankung4);
+		
+		Tankung lTankung5 = new Tankung();
+		lTankung5.setAnzahlGetankteLiter(60f);
+		lTankung5.setGetankterTreibstoffBezeichnung("Benzin Bleifrei");
+		lTankung5.setIstTankungAbgerechhnet(true);
+		lTankung5.setPreisProLiterzuTankdatum(1.80f);
+		
+		Calendar lDate5 = Calendar.getInstance();
+		lDate5.set(2013, 11, 23);
+		
+		lTankung5.setTankDatum(lDate5);
+		pTankungen.add(lTankung5);
+		
 	}
 	
 	private static void InitializeZapfsaeulen(List<Zapfsaeule> pZapfsaeulen, Kasse pKasse) {

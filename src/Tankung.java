@@ -1,3 +1,4 @@
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -8,7 +9,7 @@ public class Tankung {
 	private float mAnzahlGetankteLiter;
 	private boolean mIstTankungAbgerechhnet;
 	private String mGetankterTreibstoffBezeichnung;
-	private Date mTankDatum;
+	private Calendar mTankDatum;
 	private float mPreisProLiterzuTankdatum;
 	private int mZapfNummer;
 	
@@ -67,7 +68,7 @@ public class Tankung {
 	 * @return
 	 *  Das Tankdatum.
 	 */
-	public Date getTankDatum() {
+	public Calendar getTankDatum() {
 		return mTankDatum;
 	}
 	/**
@@ -75,7 +76,7 @@ public class Tankung {
 	 * @param pTankDatum
 	 *  Der Wert des Tankdatums.
 	 */
-	public void setTankDatum(Date pTankDatum) {
+	public void setTankDatum(Calendar pTankDatum) {
 		mTankDatum = pTankDatum;
 	}
 	/**

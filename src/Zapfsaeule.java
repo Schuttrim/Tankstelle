@@ -153,6 +153,11 @@ public class Zapfsaeule {
 							lTankInhalt -= (pAnzahlLiter * lProzentVonTotaleMenge);
 							lTreibstofftank.setFuelstand(lTankInhalt);
 						}
+						
+						System.out.println("Getankt: " + lAbgenommenerFuelstotzen.getTreibstoff().getBezeichnung() + " Anz. Liter: " + 
+						pAnzahlLiter + " Tot. Getankt: " + mGetankteLiter + " Preis: " +
+								mGetankteLiter * lAbgenommenerFuelstotzen.getTreibstoff().getPreisProLiter() + " CHF");
+						
 					} else {
 						
 						System.out.println("Die gewünschte Anzahl Liter können nicht getankt werden. Maximum überschritten.");

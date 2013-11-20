@@ -1,8 +1,10 @@
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 
 /**
@@ -108,17 +110,17 @@ public class Kasse {
 	 * @param pBis
 	 *  Ende der Auswertung.
 	 */
-	public void auswerten(Date pVon, Date pBis) {
+	public void auswerten(Calendar pVon, Calendar pBis) {
 		float lUmsatz = 0f; // Umsatz im Zeitraum
 		DateFormat lFormatierer = DateFormat.getDateInstance(DateFormat.SHORT, Locale.GERMANY); // Formatierer für Date-Objekte
 		// Tankungen auf im Zeitraum zu Liste hinzufügen
 		for (Tankung lTankung : mTankungen){
 			// auf Zeitraum überprüfen
-			if(lTankung.getTankDatum().getTime() <= pBis.getTime() && lTankung.getTankDatum().getTime() >= pVon.getTime()){
+			if(lTankung.getTankDatum().before(pBis) && lTankung.getTankDatum().after(pVon)){
 				lUmsatz += lTankung.getAnzahlGetankteLiter() * lTankung.getPreisProLiterzuTankdatum();
 			}
 		}
-		System.out.format("\n\nDer Gesamtumsatz für den Zeitraum vom %s, bis am %s ist %.2f", lFormatierer.format(pVon), lFormatierer.format(pBis), lUmsatz);
+		System.out.format("\n\nDer Gesamtumsatz für den Zeitraum vom %s, bis am %s ist %.2f", lFormatierer.format(pVon.getTime()), lFormatierer.format(pBis.getTime()), lUmsatz);
 	}
 	
 	/**
@@ -149,7 +151,7 @@ public class Kasse {
 		lTankung.setAnzahlGetankteLiter(pLiter);
 		lTankung.setGetankterTreibstoffBezeichnung(pTreibstoff);
 		lTankung.setIstTankungAbgerechhnet(false);
-		lTankung.setTankDatum(new Date());
+		lTankung.setTankDatum(Calendar.getInstance());
 		lTankung.setZapfNummer(pZapfnr);
 		
 		for (Treibstoff lTreibstoff : mTeibstoffe) {
@@ -159,7 +161,6 @@ public class Kasse {
 				lTankung.setPreisProLiterzuTankdatum(lTreibstoff.getPreisProLiter());
 			}
 		}
-		
 		mTankungen.add(lTankung);
 	}
 	
