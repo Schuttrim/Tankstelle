@@ -37,7 +37,7 @@ public class Initialize {
 		
 	}
 	
-	@SuppressWarnings("deprecation")
+	//@SuppressWarnings("deprecation")
 	private static void InitializeTankungen(List<Tankung> pTankungen, Kasse pKasse) {
 
 		Tankung lTankung = new Tankung();

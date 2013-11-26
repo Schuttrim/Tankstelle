@@ -105,14 +105,28 @@ public class Kasse {
 	
 	/**
 	 * Wertet den Umsatz in einem gewissen Zeitraum aus.
+	 * Stunde, Minute, Sekunde wird automatisch so ergänzt, damit
+	 * automatisch das Grösste Intervall von Datum zu Datum verwendet wird
 	 * @param pVon
 	 *  Anfang der Auswertung
 	 * @param pBis
 	 *  Ende der Auswertung.
 	 */
+	@SuppressWarnings("static-access")
 	public void auswerten(Calendar pVon, Calendar pBis) {
 		float lUmsatz = 0f; // Umsatz im Zeitraum
 		DateFormat lFormatierer = DateFormat.getDateInstance(DateFormat.SHORT, Locale.GERMANY); // Formatierer für Date-Objekte
+		
+		// Anpassung der Datumswerten, damit sie den ganzen Zeitraum umfassen.
+		pVon.set(pVon.HOUR_OF_DAY, 0);
+		pVon.set(pVon.MINUTE, 0);
+		pVon.set(pVon.SECOND, 0);
+		
+		pBis.set(pBis.HOUR_OF_DAY, 23);
+		pBis.set(pBis.MINUTE, 59);
+		pBis.set(pBis.SECOND, 59);
+		
+		
 		// Tankungen auf im Zeitraum zu Liste hinzufügen
 		for (Tankung lTankung : mTankungen){
 			// auf Zeitraum überprüfen
