@@ -43,10 +43,10 @@ public class Program {
 			lKasse.tankungBezahlen(1);
 			
 			Calendar lVon = Calendar.getInstance();
-			lVon.set(2013, 11, 16);
+			lVon.set(2013, 10, 26);
 			
 			Calendar lBis = Calendar.getInstance();
-			lBis.set(2013, 11, 18);
+			lBis.set(2013, 10, 26);
 				
 			lKasse.auswerten(lVon, lBis);
 	

@@ -47,7 +47,7 @@ public class Initialize {
 		lTankung.setPreisProLiterzuTankdatum(1.85f);
 		
 		Calendar lDate = Calendar.getInstance();
-		lDate.set(2013, 11, 16);
+		lDate.set(2013, 11, 16, 0, 0, 0);
 		
 		lTankung.setTankDatum(lDate);
 		pTankungen.add(lTankung);
@@ -59,7 +59,7 @@ public class Initialize {
 		lTankung1.setPreisProLiterzuTankdatum(1.85f);
 		
 		Calendar lDate1 = Calendar.getInstance();
-		lDate1.set(2013, 11, 18);
+		lDate1.set(2013, 11, 18, 23, 59, 59);
 		
 		lTankung1.setTankDatum(lDate1);
 		pTankungen.add(lTankung1);

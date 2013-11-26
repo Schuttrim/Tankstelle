@@ -130,10 +130,6 @@ public class Kasse {
 		// Tankungen auf im Zeitraum zu Liste hinzufügen
 		for (Tankung lTankung : mTankungen){
 			// auf Zeitraum überprüfen
-			//if((lTankung.getTankDatum().before(pBis) && lTankung.getTankDatum().after(pVon)) || lTankung.getTankDatum().equals(obj)){
-			
-			System.out.println("lTankung.getTankDatum().compareTo(pVon) : " + lTankung.getTankDatum().compareTo(pVon));
-			System.out.println("lTankung.getTankDatum().compareTo(pBis) : " + lTankung.getTankDatum().compareTo(pBis));
 			
 			if(lTankung.getTankDatum().compareTo(pVon) >= 0 && lTankung.getTankDatum().compareTo(pBis) <= 0){
 				lUmsatz += lTankung.getAnzahlGetankteLiter() * lTankung.getPreisProLiterzuTankdatum();
