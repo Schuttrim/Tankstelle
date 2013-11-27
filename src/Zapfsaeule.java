@@ -228,6 +228,9 @@ public class Zapfsaeule {
 			} else {
 				
 				mKasse.neueTankung(mNummer, mGetankteLiter, lAufgelegterFuelstotzen.getTreibstoff().getBezeichnung());
+				
+				// getankte Liter zurücksetzten.
+				mGetankteLiter = 0f;
 			}
 		} else {
 			

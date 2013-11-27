@@ -47,7 +47,7 @@ public class Initialize {
 		lTankung.setPreisProLiterzuTankdatum(1.85f);
 		
 		Calendar lDate = Calendar.getInstance();
-		lDate.set(2013, 11, 16, 0, 0, 0);
+		lDate.set(2013, 11, 18, 0, 0, 0);
 		
 		lTankung.setTankDatum(lDate);
 		pTankungen.add(lTankung);
@@ -145,7 +145,7 @@ public class Initialize {
 				
 				Fuellstotzen lFuelstotzen1 = new Fuellstotzen();
 				lFuelstotzen1.setIstAbgenommen(false);
-				lFuelstotzen1.setMaxFuellung(100);
+				lFuelstotzen1.setMaxFuellung(200);
 				lFuelstotzen1.setNummer(lStotzenNummer++);
 				lFuelstotzen1.setZapfsaeule(lZapfsaeule);
 				lFuelstotzen1.setTreibstoff(lTreibstoff);
@@ -188,29 +188,35 @@ public class Initialize {
 		
 		Treibstoff lTreibstoff1 = new Treibstoff();
 		lTreibstoff1.setBezeichnung("Benzin Bleifrei");
-		lTreibstoff1.setPreisProLiter(1.90f);
+		lTreibstoff1.setPreisProLiter(1.81f);
 		lTreibstoff1.setTreibstofftanks(lTreibstofftaenke);
 		//lTreibstoff1.setFuelstotzen(pFuelstotzen);
 		
 		Treibstoff lTreibstoff2 = new Treibstoff();
 		lTreibstoff2.setBezeichnung("Diesel");
-		lTreibstoff2.setPreisProLiter(2.10f);
+		lTreibstoff2.setPreisProLiter(1.98f);
 		lTreibstoff2.setTreibstofftanks(lTreibstofftaenke);
 		//lTreibstoff2.setFuelstotzen(pFuelstotzen);
 		
+		Treibstoff lTreibstoff3 = new Treibstoff();
+		lTreibstoff3.setBezeichnung("Super");
+		lTreibstoff3.setPreisProLiter(2.01f);
+		lTreibstoff3.setTreibstofftanks(lTreibstofftaenke);
+		
 		pTreibstoffe.add(lTreibstoff1);
 		pTreibstoffe.add(lTreibstoff2);
+		pTreibstoffe.add(lTreibstoff3);
 	}
 	
 	private static void InitializeTreibstofftanke(List<Treibstofftank> pTreibstofftaenke) {
 		
 		Treibstofftank lTreibstofftank1  = new Treibstofftank();
 		lTreibstofftank1.setMaxFuelmenge(1000f);
-		lTreibstofftank1.setFuelstand(500f);
+		lTreibstofftank1.setFuelstand(1000f);
 		
 		Treibstofftank lTreibstofftank2  = new Treibstofftank();
-		lTreibstofftank2.setMaxFuelmenge(1000f);
-		lTreibstofftank2.setFuelstand(700f);
+		lTreibstofftank2.setMaxFuelmenge(100000f);
+		lTreibstofftank2.setFuelstand(20000f);
 		
 		pTreibstofftaenke.add(lTreibstofftank1);
 		pTreibstofftaenke.add(lTreibstofftank2);

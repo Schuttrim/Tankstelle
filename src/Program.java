@@ -35,18 +35,35 @@ public class Program {
 		if (lAusgewaehlteZapfsaeule != null) {
 			
 			lAusgewaehlteZapfsaeule.fuellstotzenAbnehmen(1);
-			lAusgewaehlteZapfsaeule.tanken(45.25f);
-			lAusgewaehlteZapfsaeule.fuellstotzenAuflegen();
+			lAusgewaehlteZapfsaeule.tanken(72f);
 			lAusgewaehlteZapfsaeule.fuellstotzenAuflegen();
 			
 			lKasse.tankungBezahlen(1);
+			
+			lAusgewaehlteZapfsaeule.fuellstotzenAbnehmen(1);
+			lAusgewaehlteZapfsaeule.tanken(150f);
+			lAusgewaehlteZapfsaeule.fuellstotzenAuflegen();
+			
 			lKasse.tankungBezahlen(1);
+			
+			lAusgewaehlteZapfsaeule.fuellstotzenAbnehmen(0);
+			lAusgewaehlteZapfsaeule.tanken(20f);
+			lAusgewaehlteZapfsaeule.fuellstotzenAuflegen();
+			
+			lKasse.tankungBezahlen(1);
+			
+			lAusgewaehlteZapfsaeule.fuellstotzenAbnehmen(0);
+			lAusgewaehlteZapfsaeule.tanken(76f);
+			lAusgewaehlteZapfsaeule.fuellstotzenAuflegen();
+			
+			lKasse.tankungBezahlen(1);
+			
 			
 			Calendar lVon = Calendar.getInstance();
-			lVon.set(2013, 10, 26);
+			lVon.set(2013, 10, 27);
 			
 			Calendar lBis = Calendar.getInstance();
-			lBis.set(2013, 10, 26);
+			lBis.set(2013, 10, 27);
 				
 			lKasse.auswerten(lVon, lBis);
 	
