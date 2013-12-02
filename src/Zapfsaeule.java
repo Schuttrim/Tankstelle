@@ -9,7 +9,7 @@ public class Zapfsaeule {
 	private int mNummer;
 	private float mGetankteLiter;
 	private boolean mIstTankbar;
-	private Kasse mKasse;
+	private Tankstelle mTankstelle;
 	private List<Fuellstotzen> mFuellstotzenliste = new ArrayList<Fuellstotzen>();;
 	
 	/**
@@ -17,8 +17,8 @@ public class Zapfsaeule {
 	 * @return
 	 * 	Die Kasse
 	 */
-	public Kasse getKasse() {
-		return mKasse;
+	public Tankstelle getTankstelle() {
+		return mTankstelle;
 	}
 
 	/**
@@ -26,8 +26,8 @@ public class Zapfsaeule {
 	 * @param pKasse
 	 * 	Der Wert Kasse
 	 */
-	public void setKasse(Kasse pKasse) {
-		mKasse = pKasse;
+	public void setTankstelle(Tankstelle pTankstelle) {
+		mTankstelle = pTankstelle;
 	}
 
 	/**
@@ -156,7 +156,7 @@ public class Zapfsaeule {
 						
 						System.out.println("Getankt: " + lAbgenommenerFuelstotzen.getTreibstoff().getBezeichnung() + " Anz. Liter: " + 
 						pAnzahlLiter + " Tot. Getankt: " + mGetankteLiter + " Preis: " +
-								mGetankteLiter * lAbgenommenerFuelstotzen.getTreibstoff().getPreisProLiter() + " CHF");
+								Math.round(mGetankteLiter * lAbgenommenerFuelstotzen.getTreibstoff().getPreisProLiter() * 20f) / 20f + " CHF");
 						
 					} else {
 						
@@ -227,7 +227,7 @@ public class Zapfsaeule {
 				mIstTankbar = true;
 			} else {
 				
-				mKasse.neueTankung(mNummer, mGetankteLiter, lAufgelegterFuelstotzen.getTreibstoff().getBezeichnung());
+				mTankstelle.getKasse().neueTankung(mNummer, mGetankteLiter, lAufgelegterFuelstotzen.getTreibstoff().getBezeichnung());
 				
 				// getankte Liter zurücksetzten.
 				mGetankteLiter = 0f;

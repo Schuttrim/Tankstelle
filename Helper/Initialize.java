@@ -7,6 +7,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
+import sun.rmi.runtime.NewThreadAction;
+
 /**
  * Stellt eine Inititialize Klasse dar.
  */
@@ -18,6 +20,10 @@ public class Initialize {
 	 *  Die zu initialisierende Kasse
 	 */
 	public static void Kasse(Kasse pKasse) {
+		
+		Tankstelle lTankstelle = new Tankstelle();
+		
+		lTankstelle.setKasse(pKasse);
 		
 		List<Zapfsaeule> lZapfsaeulen = new ArrayList<Zapfsaeule>();
 		InitializeZapfsaeulen(lZapfsaeulen, pKasse);
@@ -31,12 +37,12 @@ public class Initialize {
 		List<Tankung> lTankungen = new ArrayList<Tankung>();
 		InitializeTankungen(lTankungen, pKasse);
 		
-		pKasse.setZapfsaeulen(lZapfsaeulen);
-		pKasse.setTeibstoffe(lTreibstoffe);
-		pKasse.setTankungen(lTankungen);
+		pKasse.getTankstelle().setZapfsaeulen(lZapfsaeulen);
+		pKasse.getTankstelle().setTeibstoffe(lTreibstoffe);
+		pKasse.getTankstelle().setTankungen(lTankungen);
 		
 	}
-	
+
 	//@SuppressWarnings("deprecation")
 	private static void InitializeTankungen(List<Tankung> pTankungen, Kasse pKasse) {
 
@@ -119,13 +125,13 @@ public class Initialize {
 		Zapfsaeule lZapfsaeule1 = new Zapfsaeule();
 		lZapfsaeule1.setIstTankbar(true);
 		lZapfsaeule1.setNummer(1);
-		lZapfsaeule1.setKasse(pKasse);
+		//lZapfsaeule1.getTankstelle().setKasse(pKasse);
 		//lZapfsaeule1.setFuellstotzenliste(pFuellstotzenliste);
 		
 		Zapfsaeule lZapfsaeule2 = new Zapfsaeule();
 		lZapfsaeule2.setIstTankbar(true);
 		lZapfsaeule2.setNummer(2);
-		lZapfsaeule2.setKasse(pKasse);
+		//lZapfsaeule2.getTankstelle().setKasse(pKasse);
 		//lZapfsaeule2.setFuellstotzenliste(pFuellstotzenliste);
 		
 		pZapfsaeulen.add(lZapfsaeule1);

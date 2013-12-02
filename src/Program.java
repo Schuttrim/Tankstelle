@@ -21,10 +21,10 @@ public class Program {
 		// Initialisiere Daten mit Standardwerten.
 		Kasse lKasse = new Kasse();
 		Initialize.Kasse(lKasse);
-		lKasse.printPreisTafel();
+		lKasse.getTankstelle().printPreisTafel();
 		
 		Zapfsaeule lAusgewaehlteZapfsaeule = null;
-		for (Zapfsaeule lZapfsaeule : lKasse.getZapfsaeulen()) {
+		for (Zapfsaeule lZapfsaeule : lKasse.getTankstelle().getZapfsaeulen()) {
 			
 			if (lZapfsaeule.getNummer() == 1) {
 				
@@ -60,10 +60,10 @@ public class Program {
 			
 			
 			Calendar lVon = Calendar.getInstance();
-			lVon.set(2013, 10, 27);
+			lVon.set(2013, 11, 2);
 			
 			Calendar lBis = Calendar.getInstance();
-			lBis.set(2013, 10, 27);
+			lBis.set(2013, 11, 2);
 				
 			lKasse.auswerten(lVon, lBis);
 	
