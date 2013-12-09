@@ -228,7 +228,7 @@ public class Zapfsaeule {
 			} else {
 				
 				mTankstelle.getKasse().neueTankung(mNummer, mGetankteLiter, lAufgelegterFuelstotzen.getTreibstoff().getBezeichnung());
-				
+				mTankstelle.getKasse().addLockedZapfsaeulenId(mNummer);
 				// getankte Liter zurücksetzten.
 				mGetankteLiter = 0f;
 			}

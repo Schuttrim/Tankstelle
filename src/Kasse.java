@@ -13,6 +13,7 @@ import java.text.SimpleDateFormat;
 public class Kasse {
 	
 	private Tankstelle mTankstelle;
+	private List<Integer> mLockedZapfsaeulenId = new ArrayList<Integer>();
 
 	public Tankstelle getTankstelle() {
 		return mTankstelle;
@@ -21,7 +22,20 @@ public class Kasse {
 	public void setTankstelle(Tankstelle pTankstelle) {
 		this.mTankstelle = pTankstelle;
 	}
-
+	
+	public void addLockedZapfsaeulenId(int pId) {
+		mLockedZapfsaeulenId.add(pId);
+	}
+	
+	public void removeLockedZapfsaeulenId(int pId) {
+		for (Integer lId : mLockedZapfsaeulenId) {
+			if (pId == lId) {
+				mLockedZapfsaeulenId.remove(lId);
+				// für geschwindigkeitsoptimierung
+				break;
+			}
+		}
+	}
 	
 	/**
 	 * Eine noch nicht bezahlte Tankung zahlen und die Zapfsäule wieder Freigeben.
@@ -41,7 +55,7 @@ public class Kasse {
 			for (Zapfsaeule lZapfseule : mTankstelle.getZapfsaeulen()){
 				if (lZapfseule.getNummer() == pZapfsaeuleNummer){
 					lZapfseule.setIstTankbar(true);	
-					
+					removeLockedZapfsaeulenId(lZapfseule.getNummer());
 					// geschwindigkeit erhöhen
 					break;
 				}
